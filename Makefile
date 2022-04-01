@@ -6,3 +6,5 @@ down:
 	docker-compose down
 clear:
 	docker-compose down -v
+test:
+	docker exec clickview_backend npm run test
