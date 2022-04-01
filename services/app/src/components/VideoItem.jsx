@@ -3,17 +3,17 @@ const VideoItem = ({item, preview}) => {
 
   if(preview) {
     return(
-      <div id={`${id}-preview-list`}>
-        <h2>{name}</h2>
+      <div className="video video--preview" id={`${id}-preview-list`}>
+        <span className="video__heading">{name}</span>
       </div>
     )
   }
 
   return(
-    <div id={id}>
-      <img alt={description} src={thumbnail}></img>
+    <div className="video" id={id}>
+      <img className="video__thumbnail" alt={description} src={thumbnail}></img>
       <div>
-        <h2>{name}</h2>
+        <h2 className="video__heading">{name}</h2>
         <p>id: {id}</p>
         <p>duration: {duration}</p>
         <p>date created: {dateCreated}</p>

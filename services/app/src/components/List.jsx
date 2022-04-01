@@ -8,7 +8,7 @@ const List = ({lists, type}) => {
   }
   const ItemType = itemMap[type]
   return(
-    <div>
+    <div className='list'>
       { lists.map((item)=> {
         return <ItemType key={item.id} item={item} />;
       })}
