@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const PORT = process.env.NODE_PORT || 8080;
 const CORS = require("cors");
 
+const playlists = require("./models/playlists.js");
+const videos = require("./models/videos.js");
+
 app.use(CORS());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -19,4 +22,6 @@ require("./routes/index.js")(app);
 
 app.listen(PORT, function() {
     console.log("Node Server running on PORT:" + PORT);
+    console.log(playlists)
+    console.log(videos)
 });
