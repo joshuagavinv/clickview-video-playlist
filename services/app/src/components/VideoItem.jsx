@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
+
 const VideoItem = ({item, preview}) => {
   const {name, duration, description, dateCreated, id, thumbnail} = item;
 
   if(preview) {
     return(
-      <div className="video video--preview" id={`${id}-preview-list`}>
+      <Link className="video video--preview" id={`${id}-preview-list`} to={{
+        pathname: `/videos/${id}`,
+      }}>
         <span className="video__heading">{name}</span>
-      </div>
+      </Link>
     )
   }
 

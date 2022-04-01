@@ -9,7 +9,9 @@ import Layout from "./layout/Layout"
 import Home from "./pages/Home";
 import Videos from "./pages/Videos";
 import Playlists from "./pages/Playlists";
-import { requestVideos, requestPlaylists } from './actions';
+import VideoPost from "./pages/VideoPost";
+import PlaylistPost from "./pages/PlaylistPost";
+import { requestVideos, requestPlaylists, requestVideosById, requestPlaylistsById } from './actions';
 
 const mapStateToProps = state => {
   return {
@@ -25,7 +27,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onRequestVideos: () => dispatch(requestVideos()),
-    onRequestPlayLists: () => dispatch(requestPlaylists())
+    onRequestVideosById: (id) => dispatch(requestVideosById(id)),
+    onRequestPlayLists: () => dispatch(requestPlaylists()),
+    onRequestPlayListsById: (id) => dispatch(requestPlaylists(id)),
   }
 }
 
@@ -35,7 +39,7 @@ class App extends Component {
   }
 
   render() {
-    const { videos, playlists } = this.props
+    const { videos, playlists, onRequestPlayListsById, onRequestVideosById } = this.props
     return (
       <div className="App">
         <Router>
@@ -44,6 +48,8 @@ class App extends Component {
               <Route index element={<Home />} />
               <Route path="videos" element={<Videos videos={videos}/>} />
               <Route path="playlists" element={<Playlists playlists={playlists} />} />
+              <Route exact path="videos/:id" element={<VideoPost reqVideosById={requestVideosById}/>}/>
+              <Route exact path="playlists/:id" element={<PlaylistPost reqPlaylistsById={requestPlaylistsById}/>}/>
             </Route>
           </Routes>
         </Router>

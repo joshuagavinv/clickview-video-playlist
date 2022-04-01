@@ -23,3 +23,18 @@ export const requestPlaylists = () => (dispatch) => {
   .catch(error => dispatch({type: REQUEST_PLAYLISTS_FAILED, payload: error}))
 }
 
+export const requestVideosById = (id) => (dispatch) => {
+  dispatch({type: REQUEST_VIDEOS_PENDING})
+  fetch(`${process.env.REACT_APP_API_URL}/api/videos${id}`)
+  .then(res => res.json())
+  .then(data => dispatch({type: REQUEST_VIDEOS_SUCCESS, payload: data}))
+  .catch(error => dispatch({type: REQUEST_VIDEOS_FAILED, payload: error}))
+}
+
+export const requestPlaylistsById = (id) => (dispatch) => {
+  dispatch({type: REQUEST_PLAYLISTS_PENDING})
+  fetch(`${process.env.REACT_APP_API_URL}/api/playlists${id}`)
+  .then(res => res.json())
+  .then(data => dispatch({type: REQUEST_PLAYLISTS_SUCCESS, payload: data}))
+  .catch(error => dispatch({type: REQUEST_PLAYLISTS_FAILED, payload: error}))
+}
