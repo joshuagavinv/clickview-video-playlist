@@ -6,8 +6,8 @@ import Layout from "./layout/Layout"
 import Home from "./pages/Home";
 import Videos from "./pages/Videos";
 import Playlists from "./pages/Playlists";
-// import VideoPost from "./pages/VideoPost";
-// import PlaylistPost from "./pages/PlaylistPost";
+import VideoPost from "./pages/VideoPost";
+import PlaylistPost from "./pages/PlaylistPost";
 
 
 const App = () => {
@@ -19,8 +19,8 @@ const App = () => {
               <Route index element={<Home />} />
               <Route path="videos" element={<Videos/>} />
               <Route path="playlists" element={<Playlists />} />
-              {/* <Route exact path="videos/:id" element={<VideoPost reqVideosById={requestVideosById}/>}/>
-              <Route exact path="playlists/:id" element={<PlaylistPost reqPlaylistsById={requestPlaylistsById}/>}/> */}
+              <Route exact path="videos/:id" element={<VideoPost/>}/>
+              <Route exact path="playlists/:id" element={<PlaylistPost/>}/>
             </Route>
           </Routes>
         </Router>

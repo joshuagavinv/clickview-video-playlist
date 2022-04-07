@@ -30,6 +30,10 @@
   height: auto;
 }
 
+.video__thumbnail--single {
+  max-width: 1140px;
+}
+
 .playlist {
   flex: 0 0 25%;
   width: 25%;
