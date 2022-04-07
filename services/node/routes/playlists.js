@@ -4,5 +4,6 @@ module.exports = router => {
   router.get("/playlists", data.findAll);
   router.get("/playlists/:id", data.findOne);
   router.put("/playlists", data.addVideo);
+  router.put("/playlists/delete", data.removeVideo);
 
 }
